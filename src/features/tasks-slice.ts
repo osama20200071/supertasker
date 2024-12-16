@@ -1,4 +1,5 @@
 import { createSlice, nanoid, PayloadAction } from '@reduxjs/toolkit';
+import data from '../api/data.json';
 
 export type TasksState = {
   entities: Task[];
@@ -11,7 +12,7 @@ const createTask = (draftTask: DraftTask): Task => {
 };
 
 const initialState: TasksState = {
-  entities: [],
+  entities: data.tasks,
 };
 
 const tasksSlice = createSlice({
@@ -23,10 +24,14 @@ const tasksSlice = createSlice({
       state.entities.unshift(task);
     },
     removeTask: (state, action: PayloadAction<Task['id']>) => {
-      const index = state.entities.findIndex(
-        (task) => task.id === action.payload,
+      const filteredTasks = state.entities.filter(
+        (task) => task.id !== action.payload,
       );
-      state.entities.splice(index, 1);
+      state.entities = [...filteredTasks];
+      // const index = state.entities.findIndex(
+      //   (task) => task.id === action.payload,
+      // );
+      // state.entities.splice(index, 1);
     },
   },
 });

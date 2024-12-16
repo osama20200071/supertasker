@@ -1,8 +1,11 @@
+import { useAppSelector } from '../hooks';
 import CreateUser from './create-user';
 import Task from './user';
 
 const UserList = () => {
-  const users: User[] = [];
+  // const users: User[] = [];
+
+  const { entities: users } = useAppSelector((state) => state.users);
 
   return (
     <section className="user-list">
