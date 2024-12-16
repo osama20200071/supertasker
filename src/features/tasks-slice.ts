@@ -7,7 +7,7 @@ export type TasksState = {
 
 type DraftTask = RequireOnly<Task, 'title'>;
 
-const createTask = (draftTask: DraftTask): Task => {
+export const createTask = (draftTask: DraftTask): Task => {
   return { id: nanoid(), ...draftTask };
 };
 
