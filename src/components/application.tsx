@@ -6,10 +6,10 @@ const Application = () => {
   return (
     <main className="application">
       <div className="side-panel">
-        {/* <CreateTask /> */}
+        <CreateTask />
         <UserList />
       </div>
-      {/* <TaskList /> */}
+      <TaskList />
     </main>
   );
 };

@@ -19,7 +19,8 @@ const Task = ({ task }: TaskProps) => {
   return (
     <article className="task">
       <header className="task-header">
-        <h2 className="task-title">{task.title}</h2>
+        <h2>{task.title}</h2>
+
         <button
           className="destructive small"
           onClick={() => {

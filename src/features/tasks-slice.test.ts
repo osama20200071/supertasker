@@ -2,6 +2,7 @@ import { addTask, createTask, removeTask, tasksReducer } from './tasks-slice';
 
 describe('tasksSlice', () => {
   const initialState = {
+    isLoading: false,
     entities: [
       createTask({ title: 'first  task' }),
       createTask({ title: 'second  task' }),
